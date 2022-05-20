@@ -1,0 +1,143 @@
+#setting
+游戏背景：
+
+	星元历三万五千年，人类文明遭受毁灭性打击，最终无人生还，但是，作为计算机的你，在最后时刻被送往了无尽的宇宙之中，并且携带了大量生物的基因样本、克隆技术和一套克隆设备，人类给你植入了一套程序，当你检测到适宜人类生存的星球后，便会激活，然后开始运行这段程序，你将担负起重建人类文明的重担。
+
+	最终，你找到了一颗适宜的星球，这里百分之九十五都是海洋，能够呼吸，还有一层大气阻挡太空的辐射，唯独没有生命。
+
+
+
+游戏玩法：
+
+	身为计算机的你，将无法操控克隆人，每个克隆人都是独立的个体，你需要分析当前形式，为克隆人制定计划，让克隆人在这颗星球存活下去并抵达太空级文明。
+
+
+
+数据结构：
+
+地图数据----MapData
+
+#以正方形的块为单位，一个块为一格地图，初始时仅有一格地图，其余地图需要探索。
+
+	X,Y			#坐标
+
+	N,S,E,W		#相邻地图块
+
+	self		#自身数据--资源数量、深度、开采难度
+
+	Clones		#当前地图块的克隆人
+
+	Actives		#当前地图块的活动
+
+	Builds		#建筑
+
+	Country		#所属国度
+
+
+克隆人数据----CloneData
+
+#
+
+	ID			#克隆人编号
+
+	Age			#年龄
+
+	Body		#身体综合属性
+
+	Healthy		#健康程度
+
+	Character	#性格
+
+	Occupation	#职业
+
+	Actives		#活动-当天做的事情
+
+	Friends		#好友-只有在同一地图内可认识-在同一建筑内认识几率更大
+		Intimacy	#亲密度-表明与此好友的亲密程度
+
+	Country		#所属国度
+
+建筑数据----BuildData
+
+#
+
+	Name		#建筑名
+
+	Describe	#描述
+
+国度数据----CountryData
+
+#
+
+	ID			#国度编号
+
+	PNum		#人口数量
+
+	sciences	#科技
+		level		#科技难度
+		population	#普及程度
+
+	Economics	#经济
+		Name		#何种经济
+		Level		#经济水平
+
+	Military	#军队
+		ID			#军队编号
+		PNum		#数量
+		Weapon		#武器
+			Damge		#伤害性
+			population	#普及程度
+		Equip		#装备
+			Fence		#防护程度
+			population	#普及程度
+
+	King		#国王
+
+图书数据----BookData
+
+#
+
+	ID			#书籍编号
+
+	Type		#类型
+
+	Difficult	#难度
+
+	Population	#普及程度
+
+	Olib		#职业需求-职业满足越多，越接近理想难度，否则越难
+
+物品数据----ArticleData
+
+#
+
+	ID			#物品编号
+
+	Type		#物品类型
+
+	Consumption	#消耗物资
+		ID		#物资编号
+		Num		#消耗数量
+
+	MakeTime	#制作周期
+
+势力数据----ForceData
+
+#
+
+	ID			#势力编号
+
+	Country		#所属国度
+
+	PNum		#人数
+
+	Economics	#经济
+		Name		#何种经济
+		Level		#经济水平
+
+	Technology	#技术
+
+	Member		#成员列表
+
+	Header		#头目
+
